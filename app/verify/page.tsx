@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-interface VerifyPageProps {
+export default function Verify({
+  searchParams,
+}: {
   searchParams: { email?: string };
-}
-
-export default function Verify({ searchParams }: VerifyPageProps) {
+}) {
   const email = searchParams.email;
 
   return (
