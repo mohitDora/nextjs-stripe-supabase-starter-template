@@ -12,6 +12,7 @@
     "@prisma/client": "^6.8.2",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@stripe/stripe-js": "^7.3.1",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.49.9",
     "class-variance-authority": "^0.7.1",
@@ -21,6 +22,7 @@
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "stripe": "^18.2.1",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {

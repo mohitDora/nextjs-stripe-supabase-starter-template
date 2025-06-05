@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 import { supabase } from "@/config/supabse/client";
 import { useRouter } from "next/navigation";
+import { getURL } from "@/lib/helpers/get-url";
 
 export function LoginForm({
   className,
@@ -12,16 +13,6 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const [userEmail, setUserEmail] = useState<string>("");
   const router = useRouter();
-
-  const getURL = () => {
-    let url =
-      process?.env?.NEXT_PUBLIC_SITE_URL ??
-      process?.env?.NEXT_PUBLIC_VERCEL_URL ??
-      "http://localhost:3000/";
-    url = url.startsWith("http") ? url : `https://${url}`;
-    url = url.endsWith("/") ? url : `${url}/`;
-    return url;
-  };
 
   const sendEmail = async (email: string) => {
     if (!email.trim()) {
