@@ -1,21 +1,18 @@
-"use client";
+import Link from "next/link";
 
-import React from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+interface VerifyPageProps {
+  searchParams: { email?: string };
+}
 
-const Verify = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+export default function Verify({ searchParams }: VerifyPageProps) {
+  const email = searchParams.email;
+
   return (
     <>
       <div>Verify {email}</div>
-      <Button variant={"link"} onClick={() => router.back()}>
+      <Link href="/" className="text-blue-600 underline">
         change email
-      </Button>
+      </Link>
     </>
   );
-};
-
-export default Verify;
+}
