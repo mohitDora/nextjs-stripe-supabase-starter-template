@@ -35,7 +35,7 @@ export default function AuthCallbackPage() {
         <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
         <p className="text-lg text-gray-700">Verifying your email...</p>
         <p className="text-sm text-gray-500 text-center">
-          Please wait, you'll be redirected shortly.
+          Please wait, you will be redirected shortly.
         </p>
       </div>
     </div>
