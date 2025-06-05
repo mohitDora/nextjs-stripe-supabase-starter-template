@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 import { supabase } from "@/config/supabse/client";
 import { useRouter } from "next/navigation";
-import { getURL } from "@/lib/helpers/get-url";
 
 export function LoginForm({
   className,
@@ -22,7 +21,7 @@ export function LoginForm({
     const { data, error } = await supabase.auth.signInWithOtp({
       email: email,
       options: {
-        emailRedirectTo: `${getURL()}auth/callback`,
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`,
       },
     });
 
