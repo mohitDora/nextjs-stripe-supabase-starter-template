@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react"; // For App Router to use searchParams
 
@@ -16,12 +17,12 @@ function SuccessContent() {
       {sessionId && (
         <p className="text-sm text-gray-500 mt-2">Session ID: {sessionId}</p>
       )}
-      <a
+      <Link
         href="/"
         className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
       >
         Go to Home
-      </a>
+      </Link>
     </div>
   );
 }

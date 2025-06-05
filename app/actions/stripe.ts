@@ -32,8 +32,8 @@ export async function createCheckoutSession(formData: FormData) {
     } else {
       return { error: "Failed to create Stripe Checkout session URL." };
     }
-  } catch (error) {
-    console.error("Error creating checkout session:");
-    return { error: "Failed to create checkout session." };
+  } catch (error: unknown) {
+    console.error("Error creating checkout session:", error);
+    return { error: error || "Failed to create checkout session." };
   }
 }
