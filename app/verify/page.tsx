@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-interface VerifyPageProps {
-  searchParams: { email?: string };
-}
+// interface VerifyPageProps {
+//   searchParams: { email?: string };
+// }
 
 export default function Verify() {
   // const email = searchParams.email;
