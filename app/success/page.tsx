@@ -1,4 +1,5 @@
-// app/success/page.tsx or pages/success.tsx
+"use client";
+
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react"; // For App Router to use searchParams
 
