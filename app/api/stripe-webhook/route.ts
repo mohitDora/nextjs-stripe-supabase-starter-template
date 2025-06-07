@@ -26,7 +26,11 @@ export async function POST(req: Request) {
     if (!sig || !webhookSecret) return;
     event = stripeAdmin.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (error) {
-    return Response.json(`Webhook Error: ${(error as any).message}`, { status: 400 });
+    const errorMessage =
+      error && typeof error === 'object' && 'message' in error
+        ? (error as { message: string }).message
+        : 'Unknown error';
+    return Response.json(`Webhook Error: ${errorMessage}`, { status: 400 });
   }
 
   if (relevantEvents.has(event.type)) {

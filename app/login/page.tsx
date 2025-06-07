@@ -6,19 +6,27 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 import { sendEmail } from "./action";
+import { useRouter } from "next/navigation";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const [userEmail, setUserEmail] = useState<string>("");
+  const router = useRouter();
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          await sendEmail(userEmail);
+          const res = await sendEmail(userEmail);
+          if (res?.success) {
+            setUserEmail("");
+            router.push("/verify?email=" + encodeURIComponent(res.email));
+          } else {
+            console.error("Failed to send email");
+          }
         }}
       >
         <div className="flex flex-col gap-6">

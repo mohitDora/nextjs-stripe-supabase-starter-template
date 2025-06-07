@@ -1,12 +1,10 @@
 'use server';
 
 import { createSupabaseServerClient } from "@/config/supabse/supabase-server-client";
-import { useRouter } from 'next/navigation';
 
-export const sendEmail = async (email: string) => {
+export async function sendEmail(email: string) {
 
     const supabase = await createSupabaseServerClient();
-    const router = useRouter();
 
     if (!email.trim()) {
         return;
@@ -25,6 +23,6 @@ export const sendEmail = async (email: string) => {
 
     if (data) {
         console.log(data);
-        router.push(`/verify?email=${encodeURIComponent(email)}`);
+        return { success: true, email };
     }
-};
+}
